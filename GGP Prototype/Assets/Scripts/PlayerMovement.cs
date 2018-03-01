@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 
         // For player strafing / movement
         Vector3 pos = transform.position;
+        float moveSpeed = 15;
 
         // For camera movement
         float mouseX = Input.GetAxis("Mouse X");
@@ -66,31 +67,31 @@ public class PlayerMovement : MonoBehaviour {
         // Strafe up, down, left, right
         if (Input.GetKey(KeyCode.W))
         {
-            pos.y += Time.deltaTime * speed;
+            pos.y += Time.deltaTime * moveSpeed;
             transform.position = pos;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            pos.y -= Time.deltaTime * speed;
+            pos.y -= Time.deltaTime * moveSpeed;
             transform.position = pos;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.localPosition += RIGHT * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            transform.localPosition += RIGHT * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.localPosition += LEFT * Input.GetAxis("Horizontal") * speed * Time.deltaTime * -1;
+            transform.localPosition += LEFT * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime * -1;
         }
 
         // Rotate camera around Y axis
         if (Input.GetKey(KeyCode.Q))
         {
-            rotY -= Time.deltaTime * speed;
+            rotY -= Time.deltaTime * moveSpeed;
         }
         if (Input.GetKey(KeyCode.E))
         {
-            rotY += Time.deltaTime * speed;
+            rotY += Time.deltaTime * moveSpeed;
         }
 
         // Moves player forward
