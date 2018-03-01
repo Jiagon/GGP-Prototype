@@ -18,4 +18,9 @@ public class BulletMove : MonoBehaviour {
         // Moves player forward
         transform.localPosition += FORWARD * speed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(this);
+    }
 }

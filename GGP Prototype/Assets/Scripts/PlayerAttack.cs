@@ -21,7 +21,9 @@ public class PlayerAttack : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            Vector3 FORWARD = transform.TransformDirection(Vector3.forward);
+            Vector3 spawnPosition = transform.localPosition + FORWARD * 2;
+            Instantiate(bullet, spawnPosition, transform.rotation);
         }
 		if(health <= 0)
         {

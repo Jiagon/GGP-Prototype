@@ -13,12 +13,15 @@ public class PlayerMovement : MonoBehaviour {
 
     float rotY = 0.0f;              // Rotation around the up / y axis - keyboard Q / E
     float rotX = 0.0f;              // Rotation around the right / x axis - mouse movement
-    float speed = 4f;
+    float speed = 0f;
+    Vector3 pos;
 
     // Use this for initialization
     void Start() {
         cursor = CursorLockMode.Locked;
         Cursor.lockState = cursor;
+
+        pos = transform.position;
 
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
@@ -34,8 +37,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // For player strafing / movement
-        Vector3 pos = transform.position;
-        float moveSpeed = 15;
+        float moveSpeed = 25;
 
         // For camera movement
         float mouseX = Input.GetAxis("Mouse X");
@@ -67,21 +69,21 @@ public class PlayerMovement : MonoBehaviour {
         // Strafe up, down, left, right
         if (Input.GetKey(KeyCode.W))
         {
-            pos.y += Time.deltaTime * moveSpeed;
+            pos.y += Time.deltaTime * moveSpeed / 3;
             transform.position = pos;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            pos.y -= Time.deltaTime * moveSpeed;
+            pos.y -= Time.deltaTime * moveSpeed / 3;
             transform.position = pos;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.localPosition += RIGHT * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+            transform.localPosition += RIGHT * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime / 3;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.localPosition += LEFT * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime * -1;
+            transform.localPosition += LEFT * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime * -1 / 3;
         }
 
         // Rotate camera around Y axis
@@ -96,6 +98,8 @@ public class PlayerMovement : MonoBehaviour {
 
         // Moves player forward
         transform.localPosition += FORWARD * speed * Time.deltaTime;
+        pos = transform.localPosition;
+        transform.position = pos;
 
         // Setting Rotation and forward vector
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
