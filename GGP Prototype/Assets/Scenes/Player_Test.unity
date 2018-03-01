@@ -144,7 +144,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0c5994b445037cd4b93fa4ba786a889d, type: 2}
+  - {fileID: 2100000, guid: 9307c2d269fb6dc4c88e400d19ca75be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -370,9 +370,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816643091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c7316c216e0fc41acc30f973424da5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8729296f3d418eb4db5937e931ea67f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  clampAngle: 90
+  maxSpeed: 10
 --- !u!23 &1816643093
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -433,7 +436,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1816643091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -117.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1552537680}
