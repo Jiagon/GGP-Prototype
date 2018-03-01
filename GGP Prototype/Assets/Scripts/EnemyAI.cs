@@ -38,4 +38,9 @@ public class EnemyAI : MonoBehaviour {
         transform.LookAt(next);
         transform.position = Vector3.MoveTowards(transform.position, next.position, dist.magnitude / timeBetweenPoints * Time.deltaTime);
     }
+
+    public void HitByBullet()
+    {
+        Destroy(this.gameObject);
+    }
 }

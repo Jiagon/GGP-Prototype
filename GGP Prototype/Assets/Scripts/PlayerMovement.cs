@@ -69,12 +69,12 @@ public class PlayerMovement : MonoBehaviour {
         // Strafe up, down, left, right
         if (Input.GetKey(KeyCode.W))
         {
-            pos.y += Time.deltaTime * moveSpeed / 3;
+            pos.y += Time.deltaTime;
             transform.position = pos;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            pos.y -= Time.deltaTime * moveSpeed / 3;
+            pos.y -= Time.deltaTime;
             transform.position = pos;
         }
         if (Input.GetKey(KeyCode.A))

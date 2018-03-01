@@ -21,6 +21,8 @@ public class BulletMove : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this);
+        if (collision.gameObject.tag == "Enemy")
+            collision.gameObject.GetComponent<EnemyAI>().HitByBullet();
+        Destroy(this.gameObject);
     }
 }
